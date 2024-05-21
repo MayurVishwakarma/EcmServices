@@ -19,7 +19,7 @@ const requireToken = (req, res, next) => {
   }
 };
 
-// Serve static files from the public folder
+// // Serve static files from the public folder
 // app.use(express.static('public'));
 
 // // Home page route

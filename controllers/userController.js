@@ -18,33 +18,60 @@ exports.getProjectListForUser = (req, res) => {
   })
 };
 
-exports.getUserById = (req, res) => {
-  const id = req.params.id;
-  User.getUserById(id, (result) => {
+
+exports.createNewUserforECM = (req, res) => {
+  User.createNewUserForECM(req, (result) => {
     res.json(result);
-  });
+  })
 };
 
-exports.addUser = (req, res) => {
-  const { name, description } = req.body;
-  User.addUser(name, description, () => {
-    res.send('Item added');
-  });
+exports.assignEcmProjectToUser = (req, res) => {
+  User.assignEcmProjectToUser(req, (result) => {
+    res.json(result);
+  })
 };
 
-exports.updateUser = (req, res) => {
+exports.deleteUserFromECM = (req, res) => {
   const id = req.params.id;
-  const { name, description } = req.body;
-  User.updateUser(id, name, description, () => {
-    res.send('Item updated');
-  });
+  User.deleteUserFromECM(id, (err, result) => {
+    if (err) throw err;
+    res.json(result);
+  })
 };
 
-exports.deleteUser = (req, res) => {
-  const id = req.params.id;
-  User.deleteUser(id, () => {
-    res.send('User deleted');
-  });
+exports.updateEcmUser = (req, res) => {
+  User.updateEcmUser(req, (result) => {
+    res.json(result);
+  })
 };
+
+// exports.getUserById = (req, res) => {
+//   const id = req.params.id;
+//   User.getUserById(id, (result) => {
+//     res.json(result);
+//   });
+// };
+
+// exports.addUser = (req, res) => {
+//   const { name, description } = req.body;
+//   User.addUser(name, description, () => {
+//     res.send('Item added');
+//   });
+// };
+
+// exports.updateUser = (req, res) => {
+//   const id = req.params.id;
+//   const { name, description } = req.body;
+//   User.updateUser(id, name, description, () => {
+//     res.send('Item updated');
+//   });
+// };
+
+// exports.deleteUser = (req, res) => {
+//   const id = req.params.id;
+//   User.deleteUser(id, () => {
+//     res.send('User deleted');
+//   });
+// };
 
 
