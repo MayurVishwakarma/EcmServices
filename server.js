@@ -19,18 +19,15 @@ const requireToken = (req, res, next) => {
   }
 };
 
-// // Serve static files from the public folder
-// app.use(express.static('public'));
+// Serve static files from the public folder
+app.use(express.static('public'));
 
-// // Home page route
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/public/Index/index.html');
-// });
-
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'Index', 'index.html'));
+// Home page route
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/Index/index.html');
 });
+
+
 
 // Apply token middleware to all routes under /users
 app.use('/users', requireToken, userRoutes);
