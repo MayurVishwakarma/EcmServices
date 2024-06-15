@@ -20,11 +20,11 @@ const requireToken = (req, res, next) => {
 };
 
 // Serve static files from the public folder
-app.use(express.static('public'));
+app.use(express.static('Public'));
 
 // Home page route
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/Index/index.html');
+  res.sendFile(__dirname + '/Public/Index/index.html');
 });
 
 
