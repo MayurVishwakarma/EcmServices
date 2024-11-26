@@ -44,7 +44,12 @@ exports.updateEcmUser = (req, res) => {
     res.json(result);
   })
 };
-
+exports.getAllProjects = (req, res) => {
+  User.getAllProjects((err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+};
 // exports.getUserById = (req, res) => {
 //   const id = req.params.id;
 //   User.getUserById(id, (result) => {

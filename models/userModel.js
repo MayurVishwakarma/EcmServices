@@ -157,6 +157,17 @@ class User {
     }
   }
 
+  static async getAllProjects(callback) {
+    try {
+      const pool = await poolPromise;
+      const request = pool.request();
+      const result = await request.execute('SAF_getProject');
+      callback(null, result.recordset);
+    } catch (err) {
+      console.log('MSSQL Query Error: ', err);
+      callback(err, null);
+    }
+  }
 
   // static getUserById(id, callback) {
   //   const sqlQuery = `SELECT * FROM tbl_User WHERE UserId = ${id}`;
