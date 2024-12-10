@@ -83,6 +83,7 @@ class User {
       request.input('LoginId', mssql.VarChar, req.body.loginId);
       request.input('Password', mssql.VarChar, req.body.password);
       request.input('User_Type', mssql.VarChar, req.body.user_type);
+      request.input('ProjectId', mssql.VarChar, req.body.projectId)
 
       // Execute the stored procedure
       const result = await request.execute('SAF_CreateNewUserForECM');
