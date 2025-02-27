@@ -83,6 +83,7 @@ class User {
       request.input('LoginId', mssql.VarChar, req.body.loginId);
       request.input('Password', mssql.VarChar, req.body.password);
       request.input('User_Type', mssql.VarChar, req.body.user_type);
+      request.input('Designation', mssql.VarChar, req.body.designation);
       request.input('ProjectId', mssql.VarChar, req.body.projectId)
 
       // Execute the stored procedure
@@ -170,6 +171,21 @@ class User {
     }
   }
 
+  static async getDesignation(callback) {
+    try {
+      const pool = await poolPromise;
+      const request = pool.request();
+      const result = await request.execute('SAF_GetDesignation');
+      callback(null, result.recordset);
+    } catch (err) {
+      console.log('MSSQL Query Error: ', err);
+      callback(err, null);
+    }
+  }
+
+
+
+
   // static getUserById(id, callback) {
   //   const sqlQuery = `SELECT * FROM tbl_User WHERE UserId = ${id}`;
   //   db.query(sqlQuery, (err, result) => {
@@ -192,6 +208,7 @@ class User {
   //   const sqlQuery = `DELETE FROM tbl_User WHERE UserId = ${id}`;
   //   db.query(sqlQuery, callback);
   // }
+  
 
 
 }

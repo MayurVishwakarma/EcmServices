@@ -50,6 +50,13 @@ exports.getAllProjects = (req, res) => {
     res.json(result);
   });
 };
+
+exports.getDesignation = (req, res) => {
+  User.getDesignation((err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+};
 // exports.getUserById = (req, res) => {
 //   const id = req.params.id;
 //   User.getUserById(id, (result) => {

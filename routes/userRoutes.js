@@ -10,6 +10,7 @@ router.post('/assignECMProject', userController.assignEcmProjectToUser);
 router.delete('/deleteEcmUser/:id', userController.deleteUserFromECM);
 router.put('/updateEcmUser', userController.updateEcmUser);
 router.get('/allprojects/', userController.getAllProjects);
+router.get('/getDesignation/', userController.getDesignation);
 
 
 module.exports = router;
