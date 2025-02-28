@@ -141,7 +141,7 @@ class User {
       const pool = await poolPromise;
       const request = pool.request();
       // Add the UserId parameter
-      request.input('UserId', mssql.Int, req.body.userId);
+      request.input('UserId', mssql.Int, req.body.userid);
       request.input('FirstName', mssql.VarChar, req.body.firstname);
       request.input('LastName', mssql.VarChar, req.body.lastname);
       request.input('MobileNumber', mssql.VarChar, req.body.mobile);
