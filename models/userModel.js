@@ -1,13 +1,7 @@
 const mysql = require('mysql');
 const mssql = require('mssql');
 
-// MySQL configuration
-const db = mysql.createConnection({
-  host: '65.21.7.252',
-  user: 'dba',
-  password: 'Sapl@2023',
-  database: 'USPL_DEV'
-});
+
 
 // MSSQL configuration
 const sqlConfig = {
@@ -183,6 +177,7 @@ class User {
       callback(err, null);
     }
   }
+
 
 
 

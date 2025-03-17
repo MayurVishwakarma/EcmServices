@@ -57,6 +57,9 @@ exports.getDesignation = (req, res) => {
     res.json(result);
   });
 };
+
+
+
 // exports.getUserById = (req, res) => {
 //   const id = req.params.id;
 //   User.getUserById(id, (result) => {
